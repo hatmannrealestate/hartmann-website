@@ -11,7 +11,7 @@
 /* =========================
    HARTMANN — CLEAN CSS (DESKTOP + MOBILE)
    Desktop: Snap scrolling, slabs with gaps, sophisticated layout
-   Mobile: Normal scrolling, stacked sections, simplified layout
+   Mobile: Normal scrolling, stacked sections, hamburger menu
    ========================= */
 
 /* ---------- RESET ---------- */
@@ -133,6 +133,11 @@ body::before{
   opacity: 0.85;
 }
 .nav a:hover{ opacity: 1; }
+
+/* HAMBURGER - HIDDEN ON DESKTOP */
+.hamburger{
+  display: none;
+}
 
 /* =========================
    HERO
@@ -544,7 +549,6 @@ body:has(#legal) .hero{
 
 /* =========================
    MOBILE (PHONES & TABLETS < 768px)
-   COMPLETE MOBILE REDESIGN
    ========================= */
 @media (max-width: 768px){
   
@@ -563,7 +567,87 @@ body:has(#legal) .hero{
     --slab-gap-top: 0px;
     --slab-gap-bottom: 0px;
     --slab-radius: 0px;
-    --qr-size: 0px; /* Hide QR on mobile */
+    --qr-size: 0px;
+  }
+  
+  /* ==================
+     HAMBURGER MENU
+     ================== */
+  
+  /* Hamburger button */
+  .hamburger{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 101;
+    margin-left: auto;
+  }
+  
+  .hamburger span{
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #ffffff;
+    transition: all 0.3s ease;
+  }
+  
+  /* Hamburger animation when open */
+  .hamburger.hamburger-open span:nth-child(1){
+    transform: translateY(9px) rotate(45deg);
+  }
+  
+  .hamburger.hamburger-open span:nth-child(2){
+    opacity: 0;
+  }
+  
+  .hamburger.hamburger-open span:nth-child(3){
+    transform: translateY(-9px) rotate(-45deg);
+  }
+  
+  /* Hide regular nav on mobile */
+  .nav{
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    max-width: 300px;
+    height: 100vh;
+    height: 100dvh;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 0;
+    padding: 80px 30px 30px 30px;
+    
+    transition: right 0.3s ease;
+    z-index: 99;
+  }
+  
+  /* Nav open state */
+  .nav.nav-open{
+    right: 0;
+  }
+  
+  /* Nav links styling */
+  .nav a{
+    width: 100%;
+    padding: 16px 0;
+    font-size: 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .nav a:last-child{
+    border-bottom: none;
   }
   
   /* MOBILE TOPBAR */
@@ -579,17 +663,10 @@ body:has(#legal) .hero{
   
   .brand{
     font-size: 13px;
+    margin-right: 0;
   }
   
-  .nav{
-    gap: 16px;
-  }
-  
-  .nav a{
-    font-size: 11px;
-  }
-  
-  /* MOBILE HERO */
+  /* KEEP HERO BACKGROUND ON MOBILE */
   .hero{
     min-height: 100vh;
     min-height: 100dvh;
@@ -617,9 +694,9 @@ body:has(#legal) .hero{
     border-bottom-width: 3px;
   }
   
-  /* REMOVE BACKGROUND ON MOBILE CONTENT */
-  body::before{
-    background: #ffffff !important;
+  /* WHITE BACKGROUND FOR CONTENT SECTIONS ONLY */
+  .paper{
+    background: #ffffff;
   }
   
   /* MOBILE SECTIONS - NORMAL STACKING */
@@ -641,7 +718,7 @@ body:has(#legal) .hero{
   
   /* MOBILE ABOUT - NO TOP GAP */
   #about{
-    padding-top: var(--topbar-h) !important;
+    padding-top: 0 !important;
   }
   
   #about .slab-surface{
