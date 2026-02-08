@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hartmann Real Estate</title>
-  <link rel="stylesheet" href="./style.css?v=1" />
+  <link rel="stylesheet" href="./style.css?v=3" />
 </head>
 
 <body id="top">
@@ -12,7 +12,14 @@
   <!-- TOP BAR -->
   <header class="topbar">
     <div class="container topbar-inner">
-      <a href="#top" class="brand">Hartmann Real Estate</a>
+      <!-- Leaf icon replacing text brand -->
+      <a href="#top" class="brand-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 13.8 5 16 7 18C9 20 11 21 12 21C13 21 15 20 17 18C19 16 20 13.8 20 12Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M12 4V21" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M12 10C14 8 16 7 18 7" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </a>
 
       <!-- Hamburger button (mobile only) -->
       <button class="hamburger" aria-label="Menu" aria-expanded="false">
@@ -35,6 +42,7 @@
   <main class="hero">
     <div class="container hero-inner">
       <div class="content">
+        <!-- Logo/Wordmark -->
         <div class="wordmark-wrap">
           <img
             src="images/hartmann-wordmark.svg"
@@ -43,7 +51,10 @@
           />
         </div>
 
-        <div class="hero-copy" aria-hidden="true"></div>
+        <!-- Hero tagline -->
+        <div class="hero-tagline">
+          <h1>Refined design.<br>Enduring value.</h1>
+        </div>
       </div>
     </div>
 
