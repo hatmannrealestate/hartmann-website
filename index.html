@@ -4,31 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hartmann Real Estate</title>
-  <link rel="stylesheet" href="./style.css?v=3" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+  
+  <link rel="stylesheet" href="./style.css?v=9" />
 </head>
 
 <body id="top">
 
-  <!-- TOP BAR -->
+  <!-- TOP BAR (DESKTOP ONLY - FULLY TRANSPARENT) -->
   <header class="topbar">
     <div class="container topbar-inner">
-      <!-- Leaf icon replacing text brand -->
+      <!-- Brand text -->
       <a href="#top" class="brand-icon">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 13.8 5 16 7 18C9 20 11 21 12 21C13 21 15 20 17 18C19 16 20 13.8 20 12Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M12 4V21" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-          <path d="M12 10C14 8 16 7 18 7" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
+        Hartmann Real Estate
       </a>
 
-      <!-- Hamburger button (mobile only) -->
-      <button class="hamburger" aria-label="Menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-
-      <!-- Navigation -->
+      <!-- Navigation (desktop only) -->
       <nav class="nav" aria-label="Primary">
         <a href="#about">About</a>
         <a href="#background">Background</a>
@@ -38,22 +31,38 @@
     </div>
   </header>
 
+  <!-- MOBILE HAMBURGER (MOBILE ONLY) -->
+  <div class="mobile-menu-bar">
+    <a href="#top" class="mobile-brand-icon">
+      <img src="images/leaf.svg" alt="Hartmann" class="leaf-logo" />
+    </a>
+    
+    <button class="hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <!-- MOBILE NAV OVERLAY -->
+  <nav class="mobile-nav" aria-label="Mobile Navigation">
+    <a href="#about">About</a>
+    <a href="#background">Background</a>
+    <a href="#approach">Approach</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
   <!-- HERO -->
   <main class="hero">
     <div class="container hero-inner">
       <div class="content">
-        <!-- Logo/Wordmark -->
+        <!-- Logo/Wordmark ONLY -->
         <div class="wordmark-wrap">
           <img
             src="images/hartmann-wordmark.svg"
             alt="Hartmann Real Estate Development &amp; Investment"
             class="wordmark"
           />
-        </div>
-
-        <!-- Hero tagline -->
-        <div class="hero-tagline">
-          <h1>Refined design.<br>Enduring value.</h1>
         </div>
       </div>
     </div>
@@ -79,6 +88,11 @@
             <h2>About</h2>
             <br>
             <p>Hartmann Real Estate is a boutique European real estate development and investment firm focused on originating, shaping, and executing targeted value‑creation strategies in select markets across Europe. We combine institutional standards of underwriting, structuring, and project control with the agility of an owner‑led platform to deliver high‑end development projects that pair architecturally refined design with disciplined, risk‑adjusted returns.</p>
+            
+            <!-- Tagline - bottom right -->
+            <div class="about-tagline">
+              Refined design. Enduring value.
+            </div>
           </div>
         </div>
       </div>
@@ -153,15 +167,41 @@
 
             <!-- FOOTER SITEMAP (IN CONTACT SECTION) -->
             <div class="footer-sitemap-content">
-              <nav class="footer-nav">
-                <a href="#about">About</a>
-                <a href="#background">Background</a>
-                <a href="#approach">Approach</a>
-                <a href="#contact">Contact</a>
-                <a href="legal-information.html">Legal Notice</a>
-              </nav>
+              
+              <!-- Nav + Social on same line -->
+              <div class="footer-nav-social-row">
+                <nav class="footer-nav">
+                  <a href="#about">About</a>
+                  <a href="#background">Background</a>
+                  <a href="#approach">Approach</a>
+                  <a href="#contact">Contact</a>
+                  <a href="legal-information.html">Legal Notice</a>
+                </nav>
+                
+                <div class="footer-social">
+                  <a href="https://linkedin.com/company/hartmann-real-estate" target="_blank" rel="noopener" aria-label="LinkedIn">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="20" cy="20" r="19" stroke="#111111" stroke-width="1.5"/>
+                      <path d="M14.5 15.5H16.5V25.5H14.5V15.5Z" fill="#111111"/>
+                      <circle cx="15.5" cy="13" r="1.25" fill="#111111"/>
+                      <path d="M18.5 15.5H20.5V16.5C20.9 15.8 21.8 15.3 23 15.3C25.5 15.3 26.5 16.8 26.5 19V25.5H24.5V19.5C24.5 18 23.8 17.5 22.8 17.5C21.6 17.5 20.5 18.3 20.5 19.8V25.5H18.5V15.5Z" fill="#111111"/>
+                    </svg>
+                  </a>
+                  <a href="https://instagram.com/hartmannrealestate" target="_blank" rel="noopener" aria-label="Instagram">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="20" cy="20" r="19" stroke="#111111" stroke-width="1.5"/>
+                      <rect x="14" y="14" width="12" height="12" rx="3" stroke="#111111" stroke-width="1.5"/>
+                      <circle cx="20" cy="20" r="2.5" stroke="#111111" stroke-width="1.5"/>
+                      <circle cx="23.5" cy="16.5" r="0.5" fill="#111111"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
               
               <div class="footer-bottom">
+                <div class="footer-leaf">
+                  <img src="images/leaf.svg" alt="Hartmann" />
+                </div>
                 <p>&copy; 2026 Hartmann Real Estate. All rights reserved.</p>
               </div>
             </div>
@@ -175,24 +215,23 @@
 
   <!-- JAVASCRIPT FOR MOBILE MENU -->
   <script>
-    // Hamburger menu toggle
     document.addEventListener('DOMContentLoaded', function() {
       const hamburger = document.querySelector('.hamburger');
-      const nav = document.querySelector('.nav');
+      const mobileNav = document.querySelector('.mobile-nav');
       
-      if (hamburger) {
+      if (hamburger && mobileNav) {
         hamburger.addEventListener('click', function() {
-          const isOpen = nav.classList.toggle('nav-open');
+          const isOpen = mobileNav.classList.toggle('mobile-nav-open');
           hamburger.classList.toggle('hamburger-open');
           hamburger.setAttribute('aria-expanded', isOpen);
           document.body.style.overflow = isOpen ? 'hidden' : '';
         });
         
         // Close menu when clicking nav links
-        const navLinks = nav.querySelectorAll('a');
+        const navLinks = mobileNav.querySelectorAll('a');
         navLinks.forEach(link => {
           link.addEventListener('click', function() {
-            nav.classList.remove('nav-open');
+            mobileNav.classList.remove('mobile-nav-open');
             hamburger.classList.remove('hamburger-open');
             hamburger.setAttribute('aria-expanded', 'false');
             document.body.style.overflow = '';
