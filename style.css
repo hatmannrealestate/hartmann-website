@@ -671,25 +671,30 @@ body:has(#legal) .hero{
     z-index: 100 !important;
   }
   
+  /* MOBILE BRAND TEXT */
   .mobile-brand-icon{
-    display: flex;
-    align-items: center;
+    display: flex !important;
+    align-items: center !important;
+    text-decoration: none !important;
+    color: #000000 !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', sans-serif !important;
+    font-size: 15px !important;
+    font-weight: 300 !important;
+    letter-spacing: 0.01em !important;
+    text-transform: uppercase !important;
   }
   
-  /* BLACK LEAF LOGO */
+  /* HIDE LEAF LOGO ON MOBILE */
   .mobile-brand-icon .leaf-logo{
-    width: 20px !important;
-    height: 20px !important;
-    filter: brightness(0) !important;
-    display: block !important;
+    display: none !important;
   }
   
   .hamburger{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 28px;
-    height: 20px;
+    width: 24px;
+    height: 18px;
     background: transparent;
     border: none;
     cursor: pointer;
@@ -697,17 +702,17 @@ body:has(#legal) .hero{
     z-index: 101;
   }
   
-  /* BLACK HAMBURGER LINES */
+  /* THINNER BLACK HAMBURGER LINES */
   .hamburger span{
     display: block !important;
     width: 100% !important;
-    height: 2px !important;
+    height: 1.5px !important;
     background: #000000 !important;
     transition: all 0.3s ease !important;
   }
   
   .hamburger.hamburger-open span:nth-child(1){
-    transform: translateY(9px) rotate(45deg);
+    transform: translateY(8.25px) rotate(45deg);
   }
   
   .hamburger.hamburger-open span:nth-child(2){
@@ -715,7 +720,7 @@ body:has(#legal) .hero{
   }
   
   .hamburger.hamburger-open span:nth-child(3){
-    transform: translateY(-9px) rotate(-45deg);
+    transform: translateY(-8.25px) rotate(-45deg);
   }
   
   .mobile-nav{
