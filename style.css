@@ -677,25 +677,22 @@ body:has(#legal) .hero{
     align-items: center;
     gap: 8px;
     text-decoration: none;
+  }
+  
+  .mobile-brand-text .mobile-leaf{
+    width: 16px;
+    height: 16px;
+    filter: brightness(0);
+    display: block;
+  }
+  
+  .mobile-brand-text span{
     color: #000000;
     font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', sans-serif;
     font-size: 13px;
     font-weight: 300;
     letter-spacing: 0.03em;
     text-transform: uppercase;
-  }
-  
-  /* SHOW LEAF BEFORE TEXT */
-  .mobile-brand-text::before{
-    content: '';
-    display: block;
-    width: 16px;
-    height: 16px;
-    background-image: url('images/leaf.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    filter: brightness(0);
   }
   
   /* HIDE OLD MOBILE BRAND ICON */
@@ -724,6 +721,7 @@ body:has(#legal) .hero{
     height: 1.5px;
     background: #000000;
     transition: all 0.3s ease;
+    border-radius: 1px;
   }
   
   .hamburger.hamburger-open span:nth-child(1){
