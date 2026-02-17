@@ -259,31 +259,20 @@ body::before{
   position: relative;
 }
 
-/* ABOUT: top edge visible */
-#about{
+/* FIRM: top edge visible */
+#firm{
   padding-top: var(--slab-gap-top);
 }
 
-#about .slab-surface{
+#firm .slab-surface{
   min-height: calc(100vh - var(--slab-gap-top));
   min-height: calc(100dvh - var(--slab-gap-top));
   border-top-left-radius: var(--slab-radius);
   border-top-right-radius: var(--slab-radius);
 }
 
-.about-tagline{
-  position: absolute;
-  bottom: 72px;
-  right: 0;
-  font-family: 'SF Pro', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 18px;
-  font-weight: 700;
-  color: #111111;
-  white-space: nowrap;
-}
-
 /* DIVIDERS - AT SECTION BOUNDARY, RESPECTING SLAB PADDING */
-.paper-section:not(#about) .slab-surface::before{
+.paper-section:not(#firm) .slab-surface::before{
   content: "";
   position: absolute;
   top: 0;
@@ -701,7 +690,7 @@ body:has(#legal) .hero{
     display: none;
   }
   
-  /* HAMBURGER - THREE THIN LINES LIKE REFERENCE */
+  /* HAMBURGER - THREE THIN LINES */
   .hamburger{
     display: flex;
     flex-direction: column;
@@ -715,7 +704,6 @@ body:has(#legal) .hero{
     z-index: 101;
   }
   
-  /* ALL HAMBURGER LINES THIN AND BLACK */
   .hamburger span{
     display: block;
     width: 100%;
@@ -827,19 +815,12 @@ body:has(#legal) .hero{
     display: none !important;
   }
   
-  #about{
+  #firm{
     padding-top: 0 !important;
   }
   
-  #about .slab-surface{
+  #firm .slab-surface{
     border-radius: 0 !important;
-  }
-  
-  .about-tagline{
-    position: static;
-    margin-top: 24px;
-    font-size: 16px;
-    text-align: right;
   }
   
   #contact{
