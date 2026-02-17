@@ -16,12 +16,9 @@
   <!-- TOP BAR (DESKTOP ONLY - FULLY TRANSPARENT) -->
   <header class="topbar">
     <div class="container topbar-inner">
-      <!-- Brand text -->
       <a href="#top" class="brand-icon">
         Hartmann Real Estate
       </a>
-
-      <!-- Navigation (desktop only) -->
       <nav class="nav" aria-label="Primary">
         <a href="#about">About</a>
         <a href="#background">Background</a>
@@ -37,7 +34,6 @@
       <img src="images/leaf.svg" alt="" class="mobile-leaf" />
       <span>Hartmann Real Estate</span>
     </a>
-    
     <button class="hamburger" aria-label="Menu" aria-expanded="false">
       <span></span>
       <span></span>
@@ -57,7 +53,6 @@
   <main class="hero">
     <div class="container hero-inner">
       <div class="content">
-        <!-- Logo/Wordmark ONLY -->
         <div class="wordmark-wrap">
           <img
             src="images/hartmann-wordmark.svg"
@@ -67,8 +62,6 @@
         </div>
       </div>
     </div>
-
-    <!-- SCROLL INDICATOR -->
     <div class="scroll-indicator">
       <a href="#about" aria-label="Scroll to About">
         <span class="scroll-bounce" aria-hidden="true">
@@ -88,9 +81,18 @@
           <div class="content">
             <h2>About</h2>
             <br>
-            <p>Hartmann Real Estate is a boutique European real estate development and investment firm focused on originating, shaping, and executing targeted value‑creation strategies in select markets across Europe. We combine institutional standards of underwriting, structuring, and project control with the agility of an owner‑led platform to deliver high‑end development projects that pair architecturally refined design with disciplined, risk‑adjusted returns.</p>
-            
-            <!-- Tagline - bottom right -->
+            <p>Hartmann Real Estate is a boutique European real estate development and investment firm dedicated to creating high quality residential and mixed use projects in carefully selected markets across Europe. Our mission is to turn well located but under optimised assets and sites into architecturally refined, financially resilient properties that perform across cycles. We focus exclusively on real estate and invest selectively alongside our partners in projects where we can directly influence outcomes through design, capex planning and execution, and active asset management. We treat every project as an exclusive, carefully crafted product: a specific answer to a clearly defined user, location and investment thesis, rather than a generic square meter exercise.</p>
+
+            <p>We focus on opportunities where thoughtful design, disciplined capex and hands on asset management can unlock meaningful value. That typically means high end and upper mid residential or mixed use schemes in supply constrained micro markets, assets that can be repositioned or reconfigured, and selective ground up developments where design quality can set a new benchmark for the area. In each case, the starting point is a clear strategy for who the project is for, how it should feel and function, and what will make it durable and desirable over time, for residents, investors and the surrounding context.</p>
+
+            <p>Hartmann Real Estate operates at the intersection of product, execution and capital. We combine an architect's attention to space, proportion, light and detail with a developer's responsibility for cost, timelines and risk, and an investment adviser's discipline around underwriting and exit. This integrated view shapes how we analyse sites, structure business plans and make trade offs between specification, capex and returns. The goal is to deliver projects that are recognisably better to live in, while remaining rigorously grounded in risk adjusted performance.</p>
+
+            <p>As a boutique, we are deliberately selective and closely held. We concentrate our time and capital on a limited number of projects where we can be deeply involved from early concept through completion and exit. This owner led model allows fast, coherent decision making and a high degree of alignment with investors and partners. At the same time, our standards for underwriting, due diligence, structuring and reporting are informed by institutional best practices, making our projects legible to family offices, funds and other sophisticated capital providers.</p>
+
+            <p>Our approach is thesis driven rather than opportunistic. We look for situations where we can clearly articulate how value will be created: through re planning and re positioning existing buildings, through targeted upgrades that materially improve the user experience and operating metrics, or through new developments that fill a specific gap in the local market. We prefer complexity that we understand, planning, design, execution or stakeholder complexity where our capabilities can de risk and simplify the process, over financial engineering for its own sake.</p>
+
+            <p>Across all projects, we aim to build assets that stand up to scrutiny in terms of design, function and performance. That means careful attention to layouts, light, privacy and everyday usability; robust and realistic capex planning; and conservative assumptions on leasing, sales and exits. It also means working constructively with local stakeholders, municipalities, neighbours and partners to ensure that projects contribute positively to their surroundings. By combining a product mindset with disciplined capital allocation and hands on execution, Hartmann Real Estate seeks to create places that people value and assets that investors can rely on over the long term.</p>
+
             <div class="about-tagline">
               Refined design. Enduring value.
             </div>
@@ -143,15 +145,12 @@
                   <div class="contact-item">
                     <a href="mailto:bruno.lara@hartmannrealestate.eu">bruno.lara@hartmannrealestate.eu</a>
                   </div>
-
                   <div class="contact-item">
                     <span>+49 152 24393569</span>
                   </div>
-
                   <div class="contact-item">
                     <span>+1 305 795 4050</span>
                   </div>
-
                   <div class="contact-item">
                     <a href="https://www.linkedin.com/in/larabruno" target="_blank" rel="noopener">linkedin.com/in/larabruno</a>
                   </div>
@@ -166,10 +165,8 @@
               </div>
             </div>
 
-            <!-- FOOTER SITEMAP (IN CONTACT SECTION) -->
+            <!-- FOOTER SITEMAP -->
             <div class="footer-sitemap-content">
-              
-              <!-- Nav + Social on same line -->
               <div class="footer-nav-social-row">
                 <nav class="footer-nav">
                   <a href="#about">About</a>
@@ -178,7 +175,6 @@
                   <a href="#contact">Contact</a>
                   <a href="legal-information.html">Legal Notice</a>
                 </nav>
-                
                 <div class="footer-social">
                   <a href="https://linkedin.com/company/hartmann-real-estate" target="_blank" rel="noopener" aria-label="LinkedIn">
                     <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -198,7 +194,7 @@
                   </a>
                 </div>
               </div>
-              
+
               <div class="footer-bottom">
                 <div class="footer-leaf">
                   <img src="images/leaf.svg" alt="Hartmann" />
@@ -228,7 +224,6 @@
           document.body.style.overflow = isOpen ? 'hidden' : '';
         });
         
-        // Close menu when clicking nav links
         const navLinks = mobileNav.querySelectorAll('a');
         navLinks.forEach(link => {
           link.addEventListener('click', function() {
