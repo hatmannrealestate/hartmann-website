@@ -780,8 +780,8 @@ body:has(#legal) .hero{
   }
   
   .wordmark{
-    width: 240px;
-    margin-bottom: 40px;
+    width: 300px;
+    margin-bottom: 0px;
   }
   
   .scroll-indicator{
