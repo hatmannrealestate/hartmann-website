@@ -169,7 +169,7 @@ body::before{
 }
 
 .wordmark-wrap{
-  margin-bottom: 50px;
+  margin-bottom: 0px;
   display: flex;
   justify-content: center;
   width: 100%;
@@ -177,7 +177,7 @@ body::before{
 
 .wordmark{
   width: 600px;
-  max-width: 100%;
+  max-width: 90%;
   height: auto;
   display: block;
 }
