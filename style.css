@@ -38,7 +38,7 @@ body::before{
   z-index: -1;
   background:
     linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.42)),
-    url("images/hero.jpg") center center / cover no-repeat;
+    var(--hero-bg, url("images/hero.jpg")) center center / cover no-repeat;
   transform: translateZ(0);
   will-change: transform;
 }
@@ -850,7 +850,7 @@ body:has(#legal) .hero{
   }
   
   .slab-surface p{
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.6;
   }
   
@@ -905,36 +905,3 @@ body:has(#legal) .hero{
   }
   
   .footer-nav{
-    flex-direction: column;
-    gap: 12px;
-  }
-  
-  .footer-leaf{
-    justify-content: center;
-  }
-  
-  .footer-leaf img{
-    width: 16px;
-    height: 16px;
-  }
-  
-  .footer-bottom{
-    padding-bottom: 0;
-    gap: 10px;
-    align-items: center;
-  }
-  
-  #legal{
-    padding-top: var(--topbar-h) !important;
-    padding-bottom: 0 !important;
-  }
-  
-  #legal .slab-surface{
-    padding: 40px var(--inset) !important;
-    border-radius: 0 !important;
-  }
-  
-  #legal .slab-surface p{
-    font-size: 14px;
-  }
-}
