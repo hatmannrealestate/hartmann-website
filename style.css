@@ -764,9 +764,13 @@ body:has(#legal) .hero{
     border-bottom: none;
   }
   
+  /* MOBILE HERO WITH RANDOM BACKGROUND */
   .hero{
     min-height: 100vh;
     min-height: 100dvh;
+    background:
+      linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.42)),
+      var(--hero-bg, url("images/hero.jpg")) center center / cover no-repeat;
   }
   
   .hero-inner{
@@ -905,3 +909,36 @@ body:has(#legal) .hero{
   }
   
   .footer-nav{
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .footer-leaf{
+    justify-content: center;
+  }
+  
+  .footer-leaf img{
+    width: 16px;
+    height: 16px;
+  }
+  
+  .footer-bottom{
+    padding-bottom: 0;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  #legal{
+    padding-top: var(--topbar-h) !important;
+    padding-bottom: 0 !important;
+  }
+  
+  #legal .slab-surface{
+    padding: 40px var(--inset) !important;
+    border-radius: 0 !important;
+  }
+  
+  #legal .slab-surface p{
+    font-size: 14px;
+  }
+}
