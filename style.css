@@ -790,8 +790,8 @@ body:has(#legal) .hero{
   }
   
   .wordmark{
-    width: 80%;
-    max-width: 350px;
+    width: 75%;
+    max-width: 300px;
     margin-bottom: 0;
   }
   
