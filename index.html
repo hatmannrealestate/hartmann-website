@@ -8,7 +8,7 @@
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
   
-  <link rel="stylesheet" href="./style.css?v=13" />
+  <link rel="stylesheet" href="./style.css?v=14" />
 </head>
 
 <body id="top">
@@ -211,6 +211,22 @@
     </section>
 
   </section>
+
+  <!-- RANDOM HERO BACKGROUND -->
+  <script>
+    // Array of background images
+    const backgrounds = [
+      'images/hero1.jpg',
+      'images/hero2.jpg',
+      'images/hero3.jpg'
+    ];
+    
+    // Pick random image
+    const randomBg = backgrounds[Math.floor(Math.random() * backgrounds.length)];
+    
+    // Apply to body::before via CSS variable
+    document.body.style.setProperty('--hero-bg', `url("${randomBg}")`);
+  </script>
 
   <!-- JAVASCRIPT FOR MOBILE MENU -->
   <script>
