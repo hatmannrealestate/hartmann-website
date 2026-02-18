@@ -764,7 +764,7 @@ body:has(#legal) .hero{
     border-bottom: none;
   }
   
-  /* MOBILE HERO WITH RANDOM BACKGROUND */
+  /* MOBILE HERO WITH RANDOM BACKGROUND - VERTICALLY CENTERED */
   .hero{
     min-height: 100vh;
     min-height: 100dvh;
@@ -776,14 +776,22 @@ body:has(#legal) .hero{
   .hero-inner{
     padding-left: var(--inset);
     padding-right: var(--inset);
+    padding-top: var(--topbar-h);
+    min-height: 100vh;
+    min-height: 100dvh;
+    justify-content: center;
     transform: none;
   }
   
-.wordmark{
-  width: 90%;  /* Use percentage instead of fixed pixels */
-  max-width: 320px;
-  margin-bottom: 00px;
-}
+  .wordmark-wrap{
+    margin-bottom: 0;
+  }
+  
+  .wordmark{
+    width: 90%;
+    max-width: 400px;
+    margin-bottom: 0;
+  }
   
   .scroll-indicator{
     bottom: 32px;
@@ -929,17 +937,4 @@ body:has(#legal) .hero{
     align-items: center;
   }
   
-  #legal{
-    padding-top: var(--topbar-h) !important;
-    padding-bottom: 0 !important;
-  }
-  
-  #legal .slab-surface{
-    padding: 40px var(--inset) !important;
-    border-radius: 0 !important;
-  }
-  
-  #legal .slab-surface p{
-    font-size: 14px;
-  }
-}
+  #le
