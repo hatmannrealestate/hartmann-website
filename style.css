@@ -779,10 +779,11 @@ body:has(#legal) .hero{
     transform: none;
   }
   
-  .wordmark{
-    width: 300px;
-    margin-bottom: 0px;
-  }
+.wordmark{
+  width: 90%;  /* Use percentage instead of fixed pixels */
+  max-width: 320px;
+  margin-bottom: 00px;
+}
   
   .scroll-indicator{
     bottom: 32px;
