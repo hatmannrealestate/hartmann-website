@@ -134,7 +134,7 @@ body::before{
   opacity: 1;
   transition: opacity 0.2s, border-bottom 0.2s, font-weight 0.2s;
   border-bottom: 1px solid transparent;
-  padding-bottom: 4px;
+  padding-bottom: 6px;
 }
 .nav a:hover{ 
   opacity: 1;
