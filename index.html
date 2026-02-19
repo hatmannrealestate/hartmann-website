@@ -272,25 +272,42 @@
   if (window.innerWidth <= 768 && window.DeviceOrientationEvent) {
     let lastBeta = 0;
     let lastGamma = 0;
+    let permissionGranted = false;
+    
+    // Create a button to request permission on iOS
+    const requestButton = document.createElement('button');
+    requestButton.textContent = 'Enable Tilt Effect';
+    requestButton.style.cssText = 'position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 1000; padding: 12px 24px; background: rgba(255,255,255,0.9); border: none; border-radius: 8px; font-size: 14px; cursor: pointer;';
     
     // Request permission for iOS 13+
     if (typeof DeviceOrientationEvent.requestPermission === 'function') {
-      DeviceOrientationEvent.requestPermission()
-        .then(permissionState => {
-          if (permissionState === 'granted') {
-            window.addEventListener('deviceorientation', handleOrientation);
-          }
-        })
-        .catch(console.error);
+      document.body.appendChild(requestButton);
+      
+      requestButton.addEventListener('click', function() {
+        DeviceOrientationEvent.requestPermission()
+          .then(permissionState => {
+            if (permissionState === 'granted') {
+              permissionGranted = true;
+              window.addEventListener('deviceorientation', handleOrientation);
+              requestButton.remove();
+            }
+          })
+          .catch(console.error);
+      });
     } else {
-      // Non-iOS devices (Android)
+      // Non-iOS devices (Android) - works automatically
+      permissionGranted = true;
       window.addEventListener('deviceorientation', handleOrientation);
     }
     
     function handleOrientation(event) {
+      if (!permissionGranted) return;
+      
       // Get tilt angles
       const beta = event.beta;   // Front-to-back tilt (-180 to 180)
       const gamma = event.gamma;  // Left-to-right tilt (-90 to 90)
+      
+      if (beta === null || gamma === null) return;
       
       // Smooth the values
       const smoothBeta = lastBeta + (beta - lastBeta) * 0.1;
@@ -299,19 +316,16 @@
       lastBeta = smoothBeta;
       lastGamma = smoothGamma;
       
-// Calculate position (limit movement to ±80px)
-const x = Math.max(-80, Math.min(80, smoothGamma * 1.2));
-const y = Math.max(-80, Math.min(80, (smoothBeta - 45) * 1.2));
+      // Calculate position (limit movement to ±60px)
+      const x = Math.max(-60, Math.min(60, smoothGamma));
+      const y = Math.max(-60, Math.min(60, (smoothBeta - 45)));
       
-      // Apply transform to hero background
-      const hero = document.querySelector('.hero');
-      if (hero) {
-        hero.style.backgroundPosition = `calc(50% + ${x}px) calc(50% + ${y}px)`;
-      }
+      // Apply transform by updating CSS variable
+      document.documentElement.style.setProperty('--parallax-x', x + 'px');
+      document.documentElement.style.setProperty('--parallax-y', y + 'px');
     }
   }
 </script>
-
   
 </body>
 </html>
