@@ -70,6 +70,9 @@ body::before{
   --footer-gap: 24px;
   
   --qr-size: 85px;
+  
+  --parallax-x: 0px;
+  --parallax-y: 0px;
 }
 
 /* ---------- CONTAINER ---------- */
@@ -767,13 +770,17 @@ body:has(#legal) .hero{
     border-bottom: none;
   }
   
-  /* MOBILE HERO WITH RANDOM BACKGROUND */
+  /* MOBILE HERO WITH PARALLAX */
   .hero{
     min-height: 100vh;
     min-height: 100dvh;
     background:
       linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.42)),
-      var(--hero-bg, url("images/hero.jpg")) center center / cover no-repeat;
+      var(--hero-bg, url("images/hero.jpg"));
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: calc(50% + var(--parallax-x)) calc(50% + var(--parallax-y));
+    transition: background-position 0.1s ease-out;
   }
   
   .hero-inner{
