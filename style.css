@@ -120,7 +120,7 @@ body::before{
 .nav{
   margin-left: auto;
   display: flex;
-  gap: 26px;
+  gap: 20px;
   white-space: nowrap;
 }
 
