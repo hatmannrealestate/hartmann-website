@@ -131,7 +131,7 @@ body::before{
   font-size: 14px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  opacity: 0.85;
+  opacity: 1;
   transition: opacity 0.2s, text-decoration 0.2s, font-weight 0.2s;
 }
 .nav a:hover{ 
