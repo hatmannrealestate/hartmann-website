@@ -117,13 +117,6 @@ body::before{
   display: none;
 }
 
-.nav{
-  margin-left: auto;
-  display: flex;
-  gap: 26px;
-  white-space: nowrap;
-}
-
 .nav a{
   color: #fff;
   text-decoration: none;
@@ -136,9 +129,20 @@ body::before{
   border-bottom: 1px solid transparent;
   padding-bottom: 5px;
 }
+
+.nav a::after{
+  display: block;
+  content: attr(href);
+  font-weight: 600;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+
 .nav a:hover{ 
   opacity: 1;
   border-bottom: 1px solid #ffffff;
+  font-weight: 600;
 }
 
 /* MOBILE MENU - HIDDEN ON DESKTOP */
