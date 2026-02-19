@@ -299,10 +299,9 @@
       lastBeta = smoothBeta;
       lastGamma = smoothGamma;
       
-      // Calculate position (limit movement to ±60px)
-      const x = Math.max(-60, Math.min(60, smoothGamma));
-      const y = Math.max(-60, Math.min(60, (smoothBeta - 45)));
-
+// Calculate position (limit movement to ±80px)
+const x = Math.max(-80, Math.min(80, smoothGamma * 1.2));
+const y = Math.max(-80, Math.min(80, (smoothBeta - 45) * 1.2));
       
       // Apply transform to hero background
       const hero = document.querySelector('.hero');
