@@ -131,10 +131,10 @@ body::before{
   font-size: 14px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  opacity: 0.85;
+  opacity: 1;
   transition: opacity 0.2s, border-bottom 0.2s;
   border-bottom: 1px solid transparent;
-  padding-bottom: 6px;
+  padding-bottom: 5px;
 }
 .nav a:hover{ 
   opacity: 1;
