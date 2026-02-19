@@ -134,11 +134,19 @@ body::before{
   opacity: 0.85;
   transition: opacity 0.2s, border-bottom 0.2s, font-weight 0.2s;
   border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
 }
 .nav a:hover{ 
   opacity: 1;
   border-bottom: 1px solid #ffffff;
-  font-weight: 700;
+  font-weight: 600;
+}
+
+/* MOBILE MENU - HIDDEN ON DESKTOP */
+.mobile-menu-bar,
+.mobile-nav,
+.hamburger{
+  display: none;
 }
 
 /* =========================
