@@ -266,5 +266,52 @@
     });
   </script>
 
+<!-- GYROSCOPE PARALLAX FOR MOBILE -->
+<script>
+  // Only run on mobile devices
+  if (window.innerWidth <= 768 && window.DeviceOrientationEvent) {
+    let lastBeta = 0;
+    let lastGamma = 0;
+    
+    // Request permission for iOS 13+
+    if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+      DeviceOrientationEvent.requestPermission()
+        .then(permissionState => {
+          if (permissionState === 'granted') {
+            window.addEventListener('deviceorientation', handleOrientation);
+          }
+        })
+        .catch(console.error);
+    } else {
+      // Non-iOS devices (Android)
+      window.addEventListener('deviceorientation', handleOrientation);
+    }
+    
+    function handleOrientation(event) {
+      // Get tilt angles
+      const beta = event.beta;   // Front-to-back tilt (-180 to 180)
+      const gamma = event.gamma;  // Left-to-right tilt (-90 to 90)
+      
+      // Smooth the values
+      const smoothBeta = lastBeta + (beta - lastBeta) * 0.1;
+      const smoothGamma = lastGamma + (gamma - lastGamma) * 0.1;
+      
+      lastBeta = smoothBeta;
+      lastGamma = smoothGamma;
+      
+      // Calculate position (limit movement to ±30px)
+      const x = Math.max(-30, Math.min(30, smoothGamma * 0.5));
+      const y = Math.max(-30, Math.min(30, (smoothBeta - 45) * 0.5));
+      
+      // Apply transform to hero background
+      const hero = document.querySelector('.hero');
+      if (hero) {
+        hero.style.backgroundPosition = `calc(50% + ${x}px) calc(50% + ${y}px)`;
+      }
+    }
+  }
+</script>
+
+  
 </body>
 </html>
