@@ -124,6 +124,7 @@ body::before{
   white-space: nowrap;
 }
 
+}
 .nav a{
   color: #fff;
   text-decoration: none;
@@ -131,16 +132,12 @@ body::before{
   font-size: 14px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  opacity: 0.85;
-  transition: opacity 0.2s;
+  opacity: 1;
+  transition: opacity 0.2s, text-decoration 0.2s;
 }
-.nav a:hover{ opacity: 1; }
-
-/* MOBILE MENU - HIDDEN ON DESKTOP */
-.mobile-menu-bar,
-.mobile-nav,
-.hamburger{
-  display: none;
+.nav a:hover{ 
+  opacity: 1;
+  text-decoration: underline;
 }
 
 /* =========================
