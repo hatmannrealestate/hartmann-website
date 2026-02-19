@@ -131,12 +131,13 @@ body::before{
   font-size: 14px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  opacity: 1;
-  transition: opacity 0.2s, text-decoration 0.2s, font-weight 0.2s;
+  opacity: 0.85;
+  transition: opacity 0.2s, border-bottom 0.2s, font-weight 0.2s;
+  border-bottom: 1px solid transparent;
 }
 .nav a:hover{ 
   opacity: 1;
-  text-decoration: underline;
+  border-bottom: 1px solid #ffffff;
   font-weight: 600;
 }
 
