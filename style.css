@@ -132,24 +132,11 @@ body::before{
   letter-spacing: 0.04em;
   text-transform: uppercase;
   opacity: 0.85;
-  transition: opacity 0.2s, border-bottom 0.2s, font-weight 0.2s;
-  border-bottom: 1px solid transparent;
-  padding-bottom: 5px;
-}
-
-.nav a::after{
-  display: block;
-  content: attr(href);
-  font-weight: 600;
-  height: 0;
-  overflow: hidden;
-  visibility: hidden;
+  transition: opacity 0.2s;
 }
 
 .nav a:hover{ 
   opacity: 1;
-  border-bottom: 1px solid #ffffff;
-  font-weight: 600;
 }
 
 /* MOBILE MENU - HIDDEN ON DESKTOP */
