@@ -379,7 +379,7 @@ body::before{
    CONTACT
    ========================= */
 #contact .contact-card{
-  margin-top: 28px;
+  margin-top: 18px;
   margin-bottom: var(--footer-sep);
   max-width: 100%;
   padding: 0;
