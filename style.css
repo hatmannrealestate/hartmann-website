@@ -323,7 +323,7 @@ body::before{
    VERTICAL DIVIDER LINES BETWEEN SECTIONS
    ========================= */
 
-/* Desktop: Dynamic lines with one line break gap at top */
+/* Desktop: Dynamic lines with equal gaps top and bottom */
 @media (min-width: 769px) {
   .dynamic-line {
     position: absolute;
@@ -512,15 +512,21 @@ body::before{
   justify-content: flex-start;
 }
 
-.footer-nav a{
-  opacity: 0.75 !important;
+.footer-nav a,
+.footer-nav a:link,
+.footer-nav a:visited,
+.footer-nav a:hover,
+.footer-nav a:active,
+.footer-nav a:focus {
+  opacity: 0.75;
   text-decoration: none !important;
   border-bottom: none !important;
   white-space: nowrap;
+  transition: opacity 0.2s;
 }
 
 .footer-nav a:hover{
-  opacity: 1 !important;
+  opacity: 1;
 }
 
 .footer-social{
