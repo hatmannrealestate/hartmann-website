@@ -554,14 +554,18 @@ body::before{
   height: 40px;
 }
 
-.footer-social svg circle {
-  stroke: var(--footer-color) !important;
+.footer-social svg circle,
+.footer-social svg rect {
+  stroke: #111111 !important;
   fill: none !important;
 }
 
-.footer-social svg path,
-.footer-social svg rect {
-  fill: var(--footer-color) !important;
+.footer-social svg path {
+  fill: #111111 !important;
+}
+
+.footer-social svg circle[r="0.5"] {
+  fill: #111111 !important;
 }
 
 .footer-sitemap-content,
