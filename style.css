@@ -330,7 +330,7 @@ body::before{
     left: 50%;
     transform: translateX(-50%);
     width: 1px;
-    background: rgba(0, 0, 0, 0.8);  /* 80% opacity black */
+    background: rgba(0, 0, 0, 0.8);
     bottom: 72px;
     z-index: 1;
     margin-top: 27.2px;
@@ -512,6 +512,17 @@ body::before{
   justify-content: flex-start;
 }
 
+.footer-nav a{
+  opacity: 0.75 !important;
+  text-decoration: none !important;
+  border-bottom: none !important;
+  white-space: nowrap;
+}
+
+.footer-nav a:hover{
+  opacity: 1 !important;
+}
+
 .footer-social{
   display: flex;
   gap: 12px;
@@ -545,16 +556,6 @@ body::before{
   line-height: var(--footer-lh) !important;
   color: var(--footer-color) !important;
   font-weight: 400 !important;
-}
-
-.footer-nav a{
-  opacity: 0.75 !important;
-  text-decoration: none !important;
-  white-space: nowrap;
-}
-
-.footer-nav a:hover{
-  opacity: 1 !important;
 }
 
 .footer-bottom{
