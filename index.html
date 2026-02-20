@@ -317,9 +317,8 @@
         const contentBottom = contentRect.bottom - slabRect.top;
         const remainingSpace = slabHeight - contentBottom;
         
-        // Set line height (72px is bottom padding, 27.2px is top AND bottom gap)
-        line.style.height = Math.max(0, remainingSpace - 72 - 27.2 - 27.2) + 'px';
-      });
+        // Set line height with equal gaps top and bottom (27.2px each)
+        line.style.height = Math.max(0, remainingSpace - 27.2 - 27.2) + 'px';      });
     }
     
     // Run on load and resize
