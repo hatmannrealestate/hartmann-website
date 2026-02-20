@@ -554,8 +554,13 @@ body::before{
   height: 40px;
 }
 
-.footer-social svg *{
+.footer-social svg circle {
   stroke: var(--footer-color) !important;
+  fill: none !important;
+}
+
+.footer-social svg path,
+.footer-social svg rect {
   fill: var(--footer-color) !important;
 }
 
