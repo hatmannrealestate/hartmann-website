@@ -3,12 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hartmann Real Estate</title>
+  <title>Hartmann Real Estate - European Development & Investment</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Hartmann Real Estate - Boutique European real estate development and investment firm. High-quality residential and mixed-use projects across Europe with a focus on value creation and strategic execution.">
+  <meta name="author" content="Bruno Lara">
+  
+  <!-- UPDATE THIS URL WHEN YOU MIGRATE TO YOUR DOMAIN -->
+  <link rel="canonical" href="https://www.hartmannrealestate.eu/">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.hartmannrealestate.eu/">
+  <meta property="og:title" content="Hartmann Real Estate - European Development & Investment">
+  <meta property="og:description" content="Boutique European real estate development and investment firm focused on high-quality residential and mixed-use projects across carefully selected European markets.">
+  <meta property="og:image" content="https://www.hartmannrealestate.eu/images/hero1.jpg">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://www.hartmannrealestate.eu/">
+  <meta property="twitter:title" content="Hartmann Real Estate - European Development & Investment">
+  <meta property="twitter:description" content="Boutique European real estate development and investment firm focused on high-quality residential and mixed-use projects across carefully selected European markets.">
+  <meta property="twitter:image" content="https://www.hartmannrealestate.eu/images/hero1.jpg">
   
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
   
-  <link rel="stylesheet" href="./style.css?v=35" />
+  <link rel="stylesheet" href="./style.css?v=36" />
 </head>
 
 <body id="top">
@@ -31,7 +52,7 @@
   <!-- MOBILE HAMBURGER (MOBILE ONLY) -->
   <div class="mobile-menu-bar">
     <a href="#top" class="mobile-brand-text">
-      <img src="images/leaf.svg" alt="" class="mobile-leaf" />
+      <img src="images/leaf.svg" alt="Hartmann Real Estate logo" class="mobile-leaf" />
       <span>Hartmann Real Estate</span>
     </a>
     <button class="hamburger" aria-label="Menu" aria-expanded="false">
@@ -53,10 +74,11 @@
   <main class="hero">
     <div class="container hero-inner">
       <div class="content">
+        <h1 class="sr-only">Hartmann Real Estate - European Development & Investment</h1>
         <div class="wordmark-wrap">
           <img
             src="images/hartmann-wordmark.svg"
-            alt="Hartmann Real Estate Development &amp; Investment"
+            alt="Hartmann Real Estate Development & Investment"
             class="wordmark"
           />
         </div>
@@ -160,7 +182,7 @@
                 <br>
 
                 <div class="contact-qr">
-                  <img src="images/qr-contact.svg" alt="QR code contact" />
+                  <img src="images/qr-contact.svg" alt="Scan QR code to save Bruno Lara contact information" />
                 </div>
               </div>
             </div>
@@ -197,7 +219,7 @@
 
               <div class="footer-bottom">
                 <div class="footer-leaf">
-                  <img src="images/leaf.svg" alt="Hartmann" />
+                  <img src="images/leaf.svg" alt="Hartmann Real Estate logo" />
                 </div>
                 <p>&copy; 2026 Hartmann Real Estate. All rights reserved.</p>
               </div>
@@ -264,6 +286,33 @@
         });
       }
     });
+  </script>
+
+  <!-- STRUCTURED DATA (Schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "RealEstateAgent",
+    "name": "Hartmann Real Estate",
+    "description": "Boutique European real estate development and investment firm",
+    "url": "https://www.hartmannrealestate.eu/",
+    "logo": "https://www.hartmannrealestate.eu/images/hartmann-wordmark.svg",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "DE"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+49-152-24393569",
+      "contactType": "Customer Service",
+      "email": "bruno.lara@hartmannrealestate.eu"
+    },
+    "sameAs": [
+      "https://linkedin.com/company/hartmann-real-estate",
+      "https://instagram.com/hartmannrealestate",
+      "https://linkedin.com/in/larabruno"
+    ]
+  }
   </script>
 
 </body>
