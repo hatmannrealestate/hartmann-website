@@ -70,9 +70,6 @@ body::before{
   --footer-gap: 24px;
   
   --qr-size: 85px;
-  
-  --parallax-x: 0px;
-  --parallax-y: 0px;
 }
 
 /* ---------- CONTAINER ---------- */
@@ -189,6 +186,21 @@ body::before{
 }
 
 /* =========================
+   ACCESSIBILITY
+   ========================= */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* =========================
    HERO CHEVRON
    ========================= */
 .scroll-indicator{
@@ -277,18 +289,6 @@ body::before{
   border-top-right-radius: var(--slab-radius);
 }
 
-/* DIVIDERS - AT SECTION BOUNDARY, RESPECTING SLAB PADDING */
-.paper-section:not(#firm) .slab-surface::before{
-  content: "";
-  position: absolute;
-  top: 0;
-  left: var(--inset);
-  right: var(--inset);
-  height: 1px;
-  background: var(--divider);
-  z-index: 10;
-}
-
 /* CONTACT: section and slab both account for bottom gap */
 #contact{
   padding-bottom: 0;
@@ -317,6 +317,24 @@ body::before{
   overflow-y: auto;
   overflow-x: hidden;
   padding-bottom: 32px;
+}
+
+/* =========================
+   VERTICAL DIVIDER LINES BETWEEN SECTIONS
+   ========================= */
+
+/* Desktop: Dynamic lines with one line break gap at top */
+@media (min-width: 769px) {
+  .dynamic-line {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    background: rgba(0, 0, 0, 0.15);
+    bottom: 72px;
+    z-index: 1;
+    margin-top: 27.2px;
+  }
 }
 
 /* =========================
@@ -770,17 +788,13 @@ body:has(#legal) .hero{
     border-bottom: none;
   }
   
-  /* MOBILE HERO WITH PARALLAX */
+  /* MOBILE HERO WITH RANDOM BACKGROUND */
   .hero{
     min-height: 100vh;
     min-height: 100dvh;
     background:
       linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.42)),
-      var(--hero-bg, url("images/hero.jpg"));
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: calc(50% + var(--parallax-x)) calc(50% + var(--parallax-y));
-    transition: background-position 0.1s ease-out;
+      var(--hero-bg, url("images/hero.jpg")) center center / cover no-repeat;
   }
   
   .hero-inner{
@@ -818,6 +832,25 @@ body:has(#legal) .hero{
   
   .paper{
     background: #ffffff;
+  }
+  
+  /* Mobile: Fixed-height gaps with centered lines */
+  .paper-section:not(:last-child) {
+    margin-bottom: 2cm;
+    position: relative;
+  }
+  
+  /* Vertical line in the gap */
+  .paper-section:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -2cm;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 2cm;
+    background: rgba(0, 0, 0, 0.15);
+    z-index: 1;
   }
   
   .paper-section{
