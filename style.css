@@ -253,7 +253,8 @@ body::before{
    SLAB SECTIONS
    ========================= */
 .paper-section{
-  min-height: auto;
+  min-height: 100vh;
+  min-height: 100dvh;
   scroll-snap-align: start;
   scroll-snap-stop: always;
   padding: 0;
@@ -265,7 +266,8 @@ body::before{
   background: #ffffff;
   color: #111111;
   width: 100%;
-  min-height: auto;
+  min-height: 100vh;
+  min-height: 100dvh;
   padding: var(--topbar-h) var(--inset) 72px var(--inset);
   text-align: left;
   position: relative;
@@ -275,12 +277,25 @@ body::before{
   position: relative;
 }
 
+/* =========================
+   AUTHORIZED FIX #1
+   UNIFORM HORIZONTAL INSET ACROSS ALL SECTIONS
+   (Prevents ONE section's nested .container from changing margins)
+   ========================= */
+.slab-surface .container{
+  max-width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+
 /* FIRM: top edge visible */
 #firm{
   padding-top: var(--slab-gap-top);
 }
 
 #firm .slab-surface{
+  min-height: calc(100vh - var(--slab-gap-top));
+  min-height: calc(100dvh - var(--slab-gap-top));
   border-top-left-radius: var(--slab-radius);
   border-top-right-radius: var(--slab-radius);
 }
@@ -475,11 +490,33 @@ body::before{
   margin-top: auto !important;
   padding-top: var(--footer-pad-top);
   padding-bottom: var(--footer-pad-bot);
-  border-top: 0;
-  border-bottom: 1px solid rgba(0,0,0,0.08); /* ONLY the last bottom line */
+
+  /* =========================
+     AUTHORIZED FIX #2
+     Remove ALL horizontal divider lines, keep ONLY final bottom line
+     ========================= */
+  border-top: 0 !important;
+  border-bottom: 1px solid rgba(0,0,0,0.08) !important;
+
   display: flex;
   flex-direction: column;
   gap: var(--footer-gap);
+}
+
+/* kill injected dividers */
+.footer-sitemap-content hr{
+  display: none !important;
+  height: 0 !important;
+  border: 0 !important;
+}
+
+/* ensure footer rows do not add horizontal separators */
+.footer-nav-social-row,
+.footer-nav,
+.footer-social,
+.footer-bottom{
+  border-top: 0 !important;
+  border-bottom: 0 !important;
 }
 
 .footer-brand,
@@ -515,7 +552,6 @@ body::before{
   justify-content: flex-end;
   align-items: center;
   padding-bottom: 0;
-  border-bottom: none;
 }
 
 .footer-social a{
@@ -561,8 +597,6 @@ body::before{
   gap: 12px;
   width: 100%;
   padding-top: 32px;
-  border-top: 0;
-  border-bottom: 0;
 }
 
 .footer-leaf{
