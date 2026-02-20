@@ -323,7 +323,7 @@ body::before{
    VERTICAL DIVIDER LINES BETWEEN SECTIONS
    ========================= */
 
-/* Desktop: Dynamic lines with equal gaps top and bottom */
+/* Desktop: Dynamic lines controlled by JavaScript */
 @media (min-width: 769px) {
   .dynamic-line {
     position: absolute;
@@ -331,9 +331,7 @@ body::before{
     transform: translateX(-50%);
     width: 1px;
     background: rgba(0, 0, 0, 0.8);
-    bottom: 72px;
     z-index: 1;
-    margin-top: 27.2px;
   }
 }
 
