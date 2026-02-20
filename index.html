@@ -9,7 +9,6 @@
   <meta name="description" content="Hartmann Real Estate - Boutique European real estate development and investment firm. High-quality residential and mixed-use projects across Europe with a focus on value creation and strategic execution.">
   <meta name="author" content="Bruno Lara">
   
-  <!-- UPDATE THIS URL WHEN YOU MIGRATE TO YOUR DOMAIN -->
   <link rel="canonical" href="https://www.hartmannrealestate.eu/">
   
   <!-- Open Graph / Facebook -->
@@ -34,7 +33,7 @@
 
 <body id="top">
 
-  <!-- TOP BAR (DESKTOP ONLY - FULLY TRANSPARENT) -->
+  <!-- TOP BAR (DESKTOP ONLY) -->
   <header class="topbar">
     <div class="container topbar-inner">
       <a href="#top" class="brand-icon">
@@ -113,11 +112,10 @@
       </div>
     </section>
 
-    <!-- BACKGROUND -->
+    <!-- BACKGROUND (FIXED) -->
     <section class="paper-section" id="background">
       <div class="container">
         <div class="slab-surface">
-          <div class="slab-surface">
           <div class="content">
             <h2>Background</h2>
             <br>
@@ -179,8 +177,7 @@
                   </div>
                 </div>
 
-                <br>
-                <br>
+                <br><br>
 
                 <div class="contact-qr">
                   <img src="images/qr-contact.svg" alt="Scan QR code to save Bruno Lara contact information" />
@@ -200,20 +197,10 @@
                 </nav>
                 <div class="footer-social">
                   <a href="https://linkedin.com/company/hartmann-real-estate" target="_blank" rel="noopener" aria-label="LinkedIn">
-                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <circle cx="20" cy="20" r="19" stroke="#111111" stroke-width="1.5"/>
-                      <path d="M14.5 15.5H16.5V25.5H14.5V15.5Z" fill="#111111"/>
-                      <circle cx="15.5" cy="13" r="1.25" fill="#111111"/>
-                      <path d="M18.5 15.5H20.5V16.5C20.9 15.8 21.8 15.3 23 15.3C25.5 15.3 26.5 16.8 26.5 19V25.5H24.5V19.5C24.5 18 23.8 17.5 22.8 17.5C21.6 17.5 20.5 18.3 20.5 19.8V25.5H18.5V15.5Z" fill="#111111"/>
-                    </svg>
+                    <!-- LinkedIn SVG -->
                   </a>
                   <a href="https://instagram.com/hartmannrealestate" target="_blank" rel="noopener" aria-label="Instagram">
-                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <circle cx="20" cy="20" r="19" stroke="#111111" stroke-width="1.5"/>
-                      <rect x="14" y="14" width="12" height="12" rx="3" stroke="#111111" stroke-width="1.5"/>
-                      <circle cx="20" cy="20" r="2.5" stroke="#111111" stroke-width="1.5"/>
-                      <circle cx="23.5" cy="16.5" r="0.5" fill="#111111"/>
-                    </svg>
+                    <!-- Instagram SVG -->
                   </a>
                 </div>
               </div>
@@ -235,10 +222,7 @@
 
   <!-- RANDOM HERO BACKGROUND WITH MOBILE DETECTION -->
   <script>
-    // Detect mobile vs desktop
     const isMobile = window.innerWidth <= 768;
-    
-    // Array of background images
     const backgrounds = isMobile ? [
       'images/hero1-mobile.jpg',
       'images/hero2-mobile.jpg',
@@ -254,81 +238,66 @@
       'images/hero5.jpg',
       'images/hero6.jpg'
     ];
-    
-    // Pick random image
     const randomBg = backgrounds[Math.floor(Math.random() * backgrounds.length)];
-    
-    // Apply to body::before via CSS variable
     document.body.style.setProperty('--hero-bg', `url("${randomBg}")`);
   </script>
 
-  <!-- JAVASCRIPT FOR MOBILE MENU -->
+  <!-- MOBILE MENU -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const hamburger = document.querySelector('.hamburger');
       const mobileNav = document.querySelector('.mobile-nav');
-      
-      if (hamburger && mobileNav) {
-        hamburger.addEventListener('click', function() {
-          const isOpen = mobileNav.classList.toggle('mobile-nav-open');
-          hamburger.classList.toggle('hamburger-open');
-          hamburger.setAttribute('aria-expanded', isOpen);
-          document.body.style.overflow = isOpen ? 'hidden' : '';
+      if (!hamburger || !mobileNav) return;
+
+      hamburger.addEventListener('click', function() {
+        const isOpen = mobileNav.classList.toggle('mobile-nav-open');
+        hamburger.classList.toggle('hamburger-open');
+        hamburger.setAttribute('aria-expanded', isOpen);
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      });
+
+      mobileNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function() {
+          mobileNav.classList.remove('mobile-nav-open');
+          hamburger.classList.remove('hamburger-open');
+          hamburger.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
         });
-        
-        const navLinks = mobileNav.querySelectorAll('a');
-        navLinks.forEach(link => {
-          link.addEventListener('click', function() {
-            mobileNav.classList.remove('mobile-nav-open');
-            hamburger.classList.remove('hamburger-open');
-            hamburger.setAttribute('aria-expanded', 'false');
-            document.body.style.overflow = '';
-          });
-        });
-      }
+      });
     });
   </script>
 
-  <!-- DYNAMIC VERTICAL LINES SCRIPT -->
+  <!-- DYNAMIC VERTICAL LINES -->
   <script>
     function updateVerticalLines() {
-      // Only run on desktop
       if (window.innerWidth <= 768) return;
-      
       const sections = document.querySelectorAll('.paper-section:not(#contact)');
-      
       sections.forEach(section => {
         const slab = section.querySelector('.slab-surface');
         const content = section.querySelector('.content');
-        
         if (!slab || !content) return;
-        
-        // Remove existing line if any
+
         let line = slab.querySelector('.dynamic-line');
         if (!line) {
           line = document.createElement('div');
           line.className = 'dynamic-line';
           slab.appendChild(line);
         }
-        
-        // Calculate dynamic height
+
         const slabHeight = slab.offsetHeight;
         const contentRect = content.getBoundingClientRect();
         const slabRect = slab.getBoundingClientRect();
         const contentBottom = contentRect.bottom - slabRect.top;
         const remainingSpace = slabHeight - contentBottom;
-        
-        // Set line height (72px is bottom padding)
         line.style.height = Math.max(0, remainingSpace - 72) + 'px';
       });
     }
-    
-    // Run on load and resize
+
     window.addEventListener('load', updateVerticalLines);
     window.addEventListener('resize', updateVerticalLines);
   </script>
 
-  <!-- STRUCTURED DATA (Schema.org) -->
+  <!-- STRUCTURED DATA -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
