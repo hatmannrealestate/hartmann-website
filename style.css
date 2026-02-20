@@ -335,24 +335,16 @@ body::before{
    VERTICAL DIVIDER LINES BETWEEN SECTIONS
    ========================= */
 
-/* Desktop: Dynamic lines inside each section's bottom padding */
+/* Desktop: Dynamic lines */
 @media (min-width: 769px) {
-  /* Line extending from bottom of each section's content */
-  .slab-surface::after {
-    content: "";
+  .dynamic-line {
     position: absolute;
     left: 50%;
-    bottom: -var(--slab-gap-top);
     transform: translateX(-50%);
     width: 1px;
-    height: var(--slab-gap-top);
     background: rgba(0, 0, 0, 0.15);
+    bottom: 72px;
     z-index: 1;
-  }
-  
-  /* No line after Contact section */
-  #contact .slab-surface::after {
-    display: none;
   }
 }
 
