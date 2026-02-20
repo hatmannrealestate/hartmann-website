@@ -29,7 +29,7 @@
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
   
-  <link rel="stylesheet" href="./style.css?v=37" />
+  <link rel="stylesheet" href="./style.css?v=38" />
 </head>
 
 <body id="top">
@@ -113,7 +113,7 @@
       </div>
     </section>
 
-    <!-- BACKGROUND (ONLY CHANGE: remove inner .slab-surface) -->
+    <!-- BACKGROUND -->
     <section class="paper-section" id="background">
       <div class="container">
         <div class="slab-surface">
@@ -317,8 +317,8 @@
         const contentBottom = contentRect.bottom - slabRect.top;
         const remainingSpace = slabHeight - contentBottom;
         
-        // Set line height (72px is bottom padding)
-        line.style.height = Math.max(0, remainingSpace - 72) + 'px';
+        // Set line height (72px is bottom padding, 27.2px is top gap for one line break)
+        line.style.height = Math.max(0, remainingSpace - 72 - 27.2) + 'px';
       });
     }
     
