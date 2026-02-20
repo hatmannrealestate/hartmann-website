@@ -289,18 +289,6 @@ body::before{
   border-top-right-radius: var(--slab-radius);
 }
 
-/* DIVIDERS - AT SECTION BOUNDARY, RESPECTING SLAB PADDING */
-.paper-section:not(#firm) .slab-surface::before{
-  content: "";
-  position: absolute;
-  top: 0;
-  left: var(--inset);
-  right: var(--inset);
-  height: 1px;
-  background: var(--divider);
-  z-index: 10;
-}
-
 /* CONTACT: section and slab both account for bottom gap */
 #contact{
   padding-bottom: 0;
