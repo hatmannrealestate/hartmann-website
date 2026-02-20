@@ -15,19 +15,6 @@
 /* ---------- RESET ---------- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* ---------- SCREEN READER ONLY ---------- */
-.sr-only{
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
 /* ---------- PREVENT iOS PULL-TO-REFRESH ---------- */
 html, body { overscroll-behavior-y: none; }
 
@@ -339,7 +326,7 @@ body::before{
   font-family: 'SF Pro', -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 500;
   font-size: 34px;
-  margin-bottom: 24px; /* slightly more generous to avoid <br> after h2 */
+  margin-bottom: 18px;
   color: #000000;
 }
 
@@ -671,7 +658,7 @@ body:has(#legal) .hero{
     right: 0;
     height: var(--topbar-h);
     padding: 0 var(--inset);
-    align.items: center;
+    align-items: center;
     justify-content: space-between;
     background: #ffffff;
     backdrop-filter: none;
@@ -793,7 +780,7 @@ body:has(#legal) .hero{
     background-size: cover;
     background-repeat: no-repeat;
     background-position: calc(50% + var(--parallax-x)) calc(50% + var(--parallax-y));
-    transition: background-position 0.1s.ease-out;
+    transition: background-position 0.1s ease-out;
   }
   
   .hero-inner{
