@@ -1,38 +1,560 @@
-/* =========================================================
-   CLEAN FIX: UNIFORM SLAB MARGINS + FOOTER LAST LINE ONLY
-   ========================================================= */
+/* =========================
+   SF PRO FONT
+   ========================= */
+@font-face {
+  font-family: 'SF Pro';
+  src: url('fonts/SF-Pro.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+}
 
-/* 1) Every slab uses the slab padding for horizontal margins.
-      If any section uses a nested .container, it must NOT re-center/max-width. */
-.slab-surface .container{
+/* =========================
+   HARTMANN — CLEAN CSS
+   ========================= */
+
+/* ---------- RESET ---------- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ---------- PREVENT iOS PULL-TO-REFRESH ---------- */
+html, body { overscroll-behavior-y: none; }
+
+html{
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
+
+body{
+  font-family: 'SF Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 300;
+  color: #ffffff;
+  background: transparent;
+}
+
+/* ---------- FIXED BACKGROUND LAYER ---------- */
+body::before{
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.42)),
+    var(--hero-bg, url("images/hero.jpg")) center center / cover no-repeat;
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* ---------- VARIABLES ---------- */
+:root{
+  --container: 1200px;
+
+  --topbar-h: 70px;
+  --page-pad: 24px;
+  --rail: 64px;
+  --inset: calc(var(--page-pad) + var(--rail));
+
+  --slab-radius: 18px;
+  --divider: rgba(0,0,0,0.08);
+
+  --slab-gap-top: 80px;
+  --slab-gap-bottom: 20vh;
+
+  --hero-lift: 40px;
+
+  --footer-fs: 12px;
+  --footer-lh: 1.35;
+  --footer-color: #111111;
+
+  --footer-sep: 44px;
+  --footer-pad-top: 18px;
+  --footer-pad-bot: 32px;
+  --footer-gap: 24px;
+  
+  --qr-size: 85px;
+}
+
+/* ---------- CONTAINER ---------- */
+.container{
+  max-width: var(--container);
+  margin: 0 auto;
+}
+
+/* =========================
+   DESKTOP NAVBAR
+   ========================= */
+.topbar{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--topbar-h);
+  z-index: 100;
+  background: transparent;
+  backdrop-filter: none;
+}
+
+.topbar-inner{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding-left: var(--inset);
+  padding-right: var(--inset);
+}
+
+.brand-icon{
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.leaf-logo{
+  display: none;
+}
+
+.nav{
+  margin-left: auto;
+  display: flex;
+  gap: 18px;
+  white-space: nowrap;
+}
+
+.nav a{
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+
+.nav a:hover{ 
+  opacity: 1;
+}
+
+/* MOBILE MENU - HIDDEN ON DESKTOP */
+.mobile-menu-bar,
+.mobile-nav,
+.hamburger{
+  display: none;
+}
+
+/* =========================
+   HERO
+   ========================= */
+.hero{
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-inner{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: var(--inset);
+  padding-right: var(--inset);
+  transform: translateY(var(--hero-lift));
+}
+
+.wordmark-wrap{
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.wordmark{
+  width: 600px;
   max-width: 100%;
-  margin-left: 0;
-  margin-right: 0;
+  height: auto;
+  display: block;
 }
 
-/* (Optional but safe) If a theme adds horizontal padding on inner wrappers inside slabs */
+/* =========================
+   ACCESSIBILITY
+   ========================= */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* =========================
+   HERO CHEVRON
+   ========================= */
+.scroll-indicator{
+  position: absolute;
+  left: 50%;
+  bottom: 32px;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.scroll-indicator a{
+  display: block;
+  text-decoration: none;
+}
+
+.scroll-bounce{
+  display: block;
+  animation: scrollHint 2.2s ease-in-out infinite;
+}
+
+.chevron{
+  display: block;
+  width: 28px;
+  height: 28px;
+  border-right: 4px solid #fff;
+  border-bottom: 4px solid #fff;
+  transform: rotate(45deg);
+  transform-origin: 50% 50%;
+}
+
+@keyframes scrollHint{
+  0%   { transform: translateY(0); opacity: 0.4; }
+  50%  { transform: translateY(8px); opacity: 1; }
+  100% { transform: translateY(0); opacity: 0.4; }
+}
+
+/* =========================
+   WRAPPER
+   ========================= */
+.paper{
+  display: block;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  scroll-snap-align: none;
+  background: transparent;
+}
+
+/* =========================
+   SLAB SECTIONS
+   ========================= */
+.paper-section{
+  min-height: auto;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+.slab-surface{
+  background: #ffffff;
+  color: #111111;
+  width: 100%;
+  min-height: auto;
+  padding: var(--topbar-h) var(--inset) 72px var(--inset);
+  text-align: left;
+  position: relative;
+}
+
 .slab-surface .content{
-  padding-left: 0;
-  padding-right: 0;
+  position: relative;
 }
 
-/* 2) FOOTER: remove ALL horizontal divider lines, keep ONLY the last bottom line */
+/* FIRM: top edge visible */
+#firm{
+  padding-top: var(--slab-gap-top);
+}
+
+#firm .slab-surface{
+  border-top-left-radius: var(--slab-radius);
+  border-top-right-radius: var(--slab-radius);
+}
+
+/* CONTACT: section and slab both account for bottom gap */
+#contact{
+  padding-bottom: 0;
+  margin-bottom: var(--slab-gap-bottom);
+  scroll-snap-align: start;
+  height: calc(100vh - var(--slab-gap-bottom));
+  background: transparent;
+}
+
+#contact .slab-surface{
+  height: 100%;
+  max-height: 100%;
+  border-bottom-left-radius: var(--slab-radius);
+  border-bottom-right-radius: var(--slab-radius);
+  display: flex;
+  flex-direction: column;
+  padding: var(--topbar-h) var(--inset) 0 var(--inset);
+  overflow: hidden;
+}
+
+#contact .content{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 32px;
+}
+
+/* =========================
+   VERTICAL DIVIDER LINES BETWEEN SECTIONS
+   ========================= */
+
+/* Desktop: Dynamic lines with one line break gap at top */
+@media (min-width: 769px) {
+  .dynamic-line {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    background: rgba(0, 0, 0, 0.15);
+    bottom: 72px;
+    z-index: 1;
+    margin-top: 27.2px; /* One line break (1.7 line-height × 16px font-size) */
+  }
+}
+
+/* =========================
+   TYPOGRAPHY
+   ========================= */
+.slab-surface h2{
+  font-family: 'SF Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 500;
+  font-size: 34px;
+  margin-bottom: 18px;
+  color: #000000;
+}
+
+.slab-surface h3{
+  font-family: 'SF Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  margin-top: 32px;
+  margin-bottom: 12px;
+  color: #111111;
+}
+
+.slab-surface h3:first-of-type{
+  margin-top: 0;
+}
+
+.slab-surface p{
+  font-family: 'SF Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+.slab-surface a{
+  color: #111111;
+  text-decoration: underline;
+}
+
+.slab-surface a:hover{
+  opacity: 0.7;
+}
+
+/* =========================
+   CONTACT
+   ========================= */
+#contact .contact-card{
+  margin-top: 28px;
+  margin-bottom: var(--footer-sep);
+  max-width: 100%;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  text-align: left;
+}
+
+.contact-info{ 
+  min-width: 0;
+  text-align: left;
+}
+
+#contact .contact-header{
+  width: 100%;
+  margin-bottom: 22px;
+  text-align: left;
+}
+
+#contact .contact-name{
+  font-family: 'SF Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 0 0 4px 0;
+  text-align: left;
+}
+
+#contact .contact-role{
+  font-family: 'SF Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  opacity: 0.75;
+  margin: 0;
+  text-align: left;
+}
+
+#contact .contact-list{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 14px;
+  text-align: left;
+}
+
+#contact .contact-item{
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+#contact .contact-item span,
+#contact .contact-item a{
+  display: inline-block;
+  line-height: 1.5;
+  text-align: left;
+}
+
+#contact a{
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0,0,0,0.15);
+}
+
+#contact a:hover{
+  border-bottom-color: rgba(0,0,0,0.40);
+}
+
+#contact .contact-qr{
+  margin-top: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+#contact .contact-qr img{
+  display: block;
+  width: var(--qr-size);
+  height: auto;
+}
+
+/* =========================
+   FOOTER
+   ========================= */
 .footer-sitemap-content{
-  border-top: 0 !important; /* remove the top divider line */
-  border-bottom: 1px solid rgba(0,0,0,0.08) !important; /* keep ONLY the final bottom line */
+  margin-top: auto !important;
+  padding-top: var(--footer-pad-top);
+  padding-bottom: var(--footer-pad-bot);
+  border-top: 0;
+  border-bottom: 1px solid rgba(0,0,0,0.08); /* ONLY the last bottom line */
+  display: flex;
+  flex-direction: column;
+  gap: var(--footer-gap);
 }
 
-/* kill common divider implementations inside footer */
-.footer-sitemap-content hr{
+.footer-brand,
+.footer-logo,
+.footer-tagline{
   display: none !important;
-  height: 0 !important;
-  border: 0 !important;
 }
 
-.footer-sitemap-content .footer-nav,
-.footer-sitemap-content .footer-social,
-.footer-sitemap-content .footer-bottom,
-.footer-sitemap-content .footer-nav-social-row{
-  border-top: 0 !important;
-  border-bottom: 0 !important;
+.footer-sitemap-content > :first-child:not(.footer-nav):not(.footer-bottom):not(.footer-social):not(.footer-nav-social-row){
+  display: none !important;
 }
+
+.footer-nav-social-row{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-nav{
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.footer-social{
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  align-items: center;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.footer-social a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none !important;
+  border-bottom: none !important;
+  transition: opacity 0.2s;
+}
+
+.footer-social a:hover{
+  opacity: 0.6;
+}
+
+.footer-social svg{
+  width: 40px;
+  height: 40px;
+}
+
+.footer-sitemap-content,
+.footer-sitemap-content *{
+  font-size: var(--footer-fs) !important;
+  line-height: var(--footer-lh) !important;
+  color: var(--footer-color) !important;
+  font-weight: 400 !important;
+}
+
+.footer-nav a{
+  opacity: 0.75 !important;
+  text-decoration: none !important;
+  white-space: nowrap;
+}
+
+.footer-nav a:hover{
+  opacity: 1 !important;
+}
+
+.footer-bottom{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
