@@ -323,7 +323,7 @@ body::before{
    VERTICAL DIVIDER LINES BETWEEN SECTIONS
    ========================= */
 
-/* Desktop: Dynamic lines */
+/* Desktop: Dynamic lines with one line break gap at top */
 @media (min-width: 769px) {
   .dynamic-line {
     position: absolute;
@@ -333,6 +333,7 @@ body::before{
     background: rgba(0, 0, 0, 0.15);
     bottom: 72px;
     z-index: 1;
+    margin-top: 27.2px; /* One line break (1.7 line-height × 16px font-size) */
   }
 }
 
@@ -939,59 +940,3 @@ body:has(#legal) .hero{
   #contact .contact-qr{
     display: none !important;
   }
-  
-  .footer-sitemap-content{
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
-  
-  .footer-nav-social-row{
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .footer-social{
-    padding-bottom: 0;
-    border-bottom: none;
-    justify-content: flex-start;
-  }
-  
-  .footer-social svg{
-    width: 36px;
-    height: 36px;
-  }
-  
-  .footer-nav{
-    flex-direction: column;
-    gap: 12px;
-  }
-  
-  .footer-leaf{
-    justify-content: center;
-  }
-  
-  .footer-leaf img{
-    width: 16px;
-    height: 16px;
-  }
-  
-  .footer-bottom{
-    padding-bottom: 0;
-    gap: 10px;
-    align-items: center;
-  }
-  
-  #legal{
-    padding-top: var(--topbar-h) !important;
-    padding-bottom: 0 !important;
-  }
-  
-  #legal .slab-surface{
-    padding: 40px var(--inset) !important;
-    border-radius: 0 !important;
-  }
-  
-  #legal .slab-surface p{
-    font-size: 14px;
-  }
-}
