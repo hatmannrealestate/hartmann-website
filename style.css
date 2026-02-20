@@ -330,7 +330,7 @@ body::before{
     left: 50%;
     transform: translateX(-50%);
     width: 1px;
-    background: rgba(0, 0, 0, 0.15);
+    background: #000000;
     bottom: 72px;
     z-index: 1;
     margin-top: 27.2px;
