@@ -332,6 +332,31 @@ body::before{
 }
 
 /* =========================
+   VERTICAL DIVIDER LINES BETWEEN SECTIONS
+   ========================= */
+
+/* Desktop: Dynamic lines inside each section's bottom padding */
+@media (min-width: 769px) {
+  /* Line extending from bottom of each section's content */
+  .slab-surface::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -var(--slab-gap-top);
+    transform: translateX(-50%);
+    width: 1px;
+    height: var(--slab-gap-top);
+    background: rgba(0, 0, 0, 0.15);
+    z-index: 1;
+  }
+  
+  /* No line after Contact section */
+  #contact .slab-surface::after {
+    display: none;
+  }
+}
+
+/* =========================
    TYPOGRAPHY
    ========================= */
 .slab-surface h2{
@@ -826,6 +851,25 @@ body:has(#legal) .hero{
   
   .paper{
     background: #ffffff;
+  }
+  
+  /* Mobile: Fixed-height gaps with centered lines */
+  .paper-section:not(:last-child) {
+    margin-bottom: 2cm;
+    position: relative;
+  }
+  
+  /* Vertical line in the gap */
+  .paper-section:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -2cm;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 2cm;
+    background: rgba(0, 0, 0, 0.15);
+    z-index: 1;
   }
   
   .paper-section{
