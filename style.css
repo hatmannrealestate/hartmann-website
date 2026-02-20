@@ -70,9 +70,6 @@ body::before{
   --footer-gap: 24px;
   
   --qr-size: 85px;
-  
-  --parallax-x: 0px;
-  --parallax-y: 0px;
 }
 
 /* ---------- CONTAINER ---------- */
@@ -186,6 +183,21 @@ body::before{
   max-width: 100%;
   height: auto;
   display: block;
+}
+
+/* =========================
+   ACCESSIBILITY
+   ========================= */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
 /* =========================
@@ -770,17 +782,13 @@ body:has(#legal) .hero{
     border-bottom: none;
   }
   
-  /* MOBILE HERO WITH PARALLAX */
+  /* MOBILE HERO WITH RANDOM BACKGROUND */
   .hero{
     min-height: 100vh;
     min-height: 100dvh;
     background:
       linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.42)),
-      var(--hero-bg, url("images/hero.jpg"));
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: calc(50% + var(--parallax-x)) calc(50% + var(--parallax-y));
-    transition: background-position 0.1s ease-out;
+      var(--hero-bg, url("images/hero.jpg")) center center / cover no-repeat;
   }
   
   .hero-inner{
