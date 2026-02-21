@@ -29,7 +29,7 @@
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
   
-  <link rel="stylesheet" href="./style.css?v=39" />
+  <link rel="stylesheet" href="./style.css?v=40" />
 </head>
 
 <body id="top">
@@ -120,15 +120,15 @@
           <div class="content">
             <h2>Background</h2>
             <br>
-            <p>Hartmann Real Estate was founded by Bruno Lara to combine a deep commitment to the built environment with a developer’s execution experience and an institutional investment perspective. He has 15+ years of experience across the real estate value chain in the US and Europe, from planning and development to investment and commercial transactions, focused on residential and mixed‑use assets.</p>
+            <p>Hartmann Real Estate was founded by Bruno Lara to combine a deep commitment to the built environment with a developer's execution experience and an institutional investment perspective. He has 15+ years of experience across the real estate value chain in the US and Europe, from planning and development to investment and commercial transactions, focused on residential and mixed‑use assets.</p>
 
-            <p>Bruno began his career in commercial architecture in Florida before moving into high‑end residential development in California, delivering bespoke single‑ and multi‑family projects in Santa Monica, Pacific Palisades and Malibu. He became highly skilled at steering negotiations on complex entitlement and approval processes with multiple local government authorities to secure the highest and best use for each asset. Running projects from concept through completion, he built an execution‑level understanding of how product design, construction quality and end‑user expectations translate into pricing power and risk control in luxury‑grade residential assets.</p>
+            <p>Bruno began his career in commercial architecture in Florida before moving into high‑end residential development in California, delivering bespoke single‑ and multi‑family projects in Santa Monica, Pacific Palisades and Malibu. He built a track record of successfully negotiating complex entitlements with local government authorities to secure the highest and best use for each asset. Running projects from concept through completion gave him an execution‑level understanding of how product design, construction quality and end‑user expectations translate into pricing power and risk control in luxury‑grade residential assets.</p>
 
-            <p>He later moved into value‑add residential investment and redevelopment, overseeing acquisitions, capex and execution for private investors, family offices and high‑net‑worth individuals, upgrading underperforming assets into higher‑yielding properties with defined exit strategies.</p>
+            <p>He later moved into value‑add residential investment and redevelopment, working in acquisitions, capex and execution for private investors, family offices and high‑net‑worth individuals, upgrading underperforming assets into higher‑yielding properties with defined exit strategies.</p>
 
-            <p>He then joined BNP Paribas Real Estate in Germany as Director International Investment, where he spent five years leading cross‑border mandates into the German market and advising on transactions with global institutional capital.</p>
-            
-            <p>His academic background includes a Bachelor of Architecture from Florida Atlantic University, a Master in Real Estate Development from IE Business School, and current MBA candidacy at London Business School in London and Dubai. His academic background includes a Bachelor of Architecture from Florida Atlantic University, a Master in Real Estate Development from IE Business School, and current MBA candidacy at London Business School, which together underpin Hartmann Real Estate’s approach to bespoke development projects for private and institutional equity partners.</p>
+            <p>After that, he moved into commercial real estate at BNP Paribas Real Estate in Germany as Director International Investment, spending five years leading cross‑border mandates into the German market and advising on transactions with global institutional capital.</p>
+
+            <p>His academic background includes a Bachelor of Architecture from Florida Atlantic University, a Master in Real Estate Development from IE Business School, and current MBA candidacy at London Business School, which together underpin Hartmann Real Estate's approach to bespoke development projects for private and institutional equity partners.</p>
           </div>
         </div>
       </div>
@@ -319,8 +319,14 @@
         const contentBottom = contentRect.bottom - slabRect.top;
         const remainingSpace = slabHeight - contentBottom;
         
-        // Set line height with equal gaps top and bottom (27.2px each)
-        line.style.height = Math.max(0, remainingSpace - 27.2 - 72) + 'px';      });
+        // Calculate where line should start (one line break below content)
+        const lineTop = contentBottom + 27.2;
+        // Calculate where line should end (one line break above bottom)
+        const lineBottom = slabHeight - 72 - 27.2;
+        // Set line position and height
+        line.style.top = lineTop + 'px';
+        line.style.height = Math.max(0, lineBottom - lineTop) + 'px';
+      });
     }
     
     // Run on load and resize
